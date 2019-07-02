@@ -9,6 +9,8 @@
  */
 class Solution {
 public:
+    // to be improved: record max during getDepth
+    // avoid recursion for diameterOfBinaryTree()
     int getDepth(TreeNode* root)
     {
         if (root == NULL)
