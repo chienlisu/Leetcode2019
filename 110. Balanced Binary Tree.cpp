@@ -24,11 +24,11 @@ public:
         if (root == NULL)
             return true;
         
+        if(!isBalanced(root->left) || !isBalanced(root->right))
+            return false;
+        
         int left = getDepth(root->left);
         int right = getDepth(root->right);
-        if (abs(left-right) > 1)
-            return false;
-        else
-            return (isBalanced(root->left) && isBalanced(root->right));
+        return (abs(left-right) <= 1);
     }
 };
