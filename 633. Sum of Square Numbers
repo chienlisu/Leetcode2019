@@ -1,0 +1,35 @@
+class Solution {
+public:
+    bool binarySearch(long l, long h, int n)
+    {
+        if (l > h)
+            return false;
+        
+        long med = l + (h-l)/2;
+        
+        if (med * med == n)
+        {
+            return true;
+        }
+        else if (med*med > n)
+        {
+            return binarySearch(l, med-1, n);
+        }
+        else
+        {
+            return binarySearch(med+1, h, n);
+        }
+    }
+    bool judgeSquareSum(int c) {
+        if ( c <= 1)
+            return true;
+        
+        for (int i=0; i*i <= c/2; ++i) // same for c/2~c
+        {
+            int curr = c - i*i;
+            if (binarySearch(0, curr, curr))
+                return true;
+        }
+        return false;
+    }
+};
